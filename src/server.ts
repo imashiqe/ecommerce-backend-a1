@@ -1,13 +1,19 @@
-import { Request, Response } from 'express'; // Import the correct types for Request and Response
 
-const express = require('express');
-const app = express();
-const port = 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
-});
+import mongoose from 'mongoose';
+import config from './app/config/config';
+import app from './app';
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+async function main() {
+  try {
+    await mongoose.connect(config.databaseURL as string);
+
+    app.listen(config.port, () => {
+      console.log(`Ecommerce Server Running on port ${config.port}`);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+main();
