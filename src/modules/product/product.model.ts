@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import { Product } from './product.interface';
 
 // Define a Variant schema
 const variantSchema = new Schema({
@@ -65,5 +66,4 @@ const productSchema = new Schema({
 });
 
 // Create and export the Product model
-const Product = model('Product', productSchema);
-export default Product;
+export const ProductModel = model<Product>('Product', productSchema);
