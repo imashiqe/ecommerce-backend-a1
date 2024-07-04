@@ -1,0 +1,35 @@
+import * as z from 'zod';
+
+// Define the Variant schema
+const variantValidationSchema = z.object({
+  type: z.string().min(1, { message: 'Variant type is required' }),
+  value: z.string().min(1, { message: 'Variant value is required' }),
+});
+
+// Define the Inventory schema
+const inventoryValidationSchema = z.object({
+  quantity: z
+    .number()
+    .int()
+    .nonnegative({ message: 'Quantity must be a non-negative integer' })
+    .min(0, { message: 'Quantity cannot be less than 0' }),
+  inStock: z.boolean({ message: 'InStock status is required' }),
+});
+
+// Define the Product schema
+const productValidationSchema = z.object({
+  name: z.string().min(1, { message: 'Product name is required' }),
+  description: z
+    .string()
+    .min(1, { message: 'Product description is required' }),
+  price: z
+    .number()
+    .positive({ message: 'Price must be a positive number' })
+    .min(0, { message: 'Price cannot be less than 0' }),
+  category: z.string().min(1, { message: 'Product category is required' }),
+  tags: z.array(z.string().min(1, { message: 'Each tag must be a non-empty string' })),
+  variants: z.array(variantValidationSchema),
+  inventory: inventoryValidationSchema,
+});
+
+export default productValidationSchema;
