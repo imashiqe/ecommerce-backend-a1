@@ -5,14 +5,11 @@ import productValidationSchema from './product.validation';
 
 const createproduct = async (req: Request, res: Response) => {
   try {
-    //creating a schema validation using zod
-    // validating the schema
+   
     const { product: productData } = req.body;
     const zodiacsData = productValidationSchema.parse(productData);
 
-    // will call service func to send this data
     const result = await productService.createProductIntoDB(zodiacsData);
-    // send response
 
     res.status(200).json({
       success: true,

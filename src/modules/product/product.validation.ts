@@ -1,12 +1,11 @@
 import * as z from 'zod';
 
-// Define the Variant schema
+
 const variantValidationSchema = z.object({
   type: z.string().min(1, { message: 'Variant type is required' }),
   value: z.string().min(1, { message: 'Variant value is required' }),
 });
 
-// Define the Inventory schema
 const inventoryValidationSchema = z.object({
   quantity: z
     .number()
@@ -16,7 +15,6 @@ const inventoryValidationSchema = z.object({
   inStock: z.boolean({ message: 'InStock status is required' }),
 });
 
-// Define the Product schema
 const productValidationSchema = z.object({
   name: z.string().min(1, { message: 'Product name is required' }),
   description: z
