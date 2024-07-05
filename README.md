@@ -1,4 +1,3 @@
-
 # eCommerce Project
 
 Welcome to our eCommerce project repository! This project is designed to serve as a backend for an eCommerce platform, providing essential functionalities for managing products, orders, and users.
@@ -35,12 +34,12 @@ SERVER_PORT=5000
 
 Replace `<your_database_url>` with the URL of your MongoDB database.
 
-### Start the Server
+### Start the Server in Development Mode
 
-Start the server using npm:
+To start the server in development mode with hot-reloading, use:
 
 ```bash
-npm start
+npm run start:dev
 ```
 
 ### Access the Application
@@ -70,7 +69,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize this README further based on additional features, setup instructions, or specific details about your eCommerce project.
