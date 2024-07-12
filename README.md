@@ -60,6 +60,79 @@ This eCommerce project provides a robust backend system for managing various asp
 - Cart management
 - and more
 
+Get Any Error
+
+1. **Remove `eslint` from `devDependencies` in `package.json`**:
+   - Open your `package.json` file.
+   - Locate the `devDependencies` object.
+   - Remove the line that specifies `eslint`.
+
+    ```json
+    {
+      "devDependencies": {
+        // Other dev dependencies...
+        "eslint": "^7.32.0", // Remove this line
+        // Other dev dependencies...
+      }
+    }
+    ```
+
+2. **Delete `package-lock.json` file**:
+   - In your project directory, locate and delete the `package-lock.json` file.
+
+3. **Remove `node_modules` directory**:
+   - In your project directory, locate and delete the `node_modules` directory.
+
+4. **Install `prettier` as a dev dependency**:
+   - Open your terminal.
+   - Run the following command to install Prettier:
+     ```bash
+     npm install --save-dev prettier
+     ```
+
+5. **Run `npm install`**:
+   - In your terminal, run the following command to install the necessary packages:
+     ```bash
+     npm install
+     ```
+
+6. **Run `npm run build`**:
+   - In your terminal, run the following command to build your project:
+     ```bash
+     npm run build
+     ```
+
+7. **Deploy with Vercel**:
+   - In your terminal, run the following command to deploy your project with Vercel:
+     ```bash
+     vercel --prod
+     ```
+
+Here's the consolidated set of commands to run in your terminal:
+
+```bash
+# Remove eslint from package.json
+# (Manually edit package.json to remove eslint from devDependencies)
+
+# Delete package-lock.json
+rm package-lock.json
+
+# Remove node_modules directory
+rm -rf node_modules
+
+# Install prettier as a dev dependency
+npm install --save-dev prettier
+
+# Install all dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Deploy with Vercel
+vercel --prod
+```
+
 Feel free to explore the codebase and adapt it to suit your specific requirements.
 
 ## Contributing
